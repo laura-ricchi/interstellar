@@ -3,18 +3,18 @@ import {
   Image,
   SafeAreaView,
   ScrollView,
+  StatusBar,
   StyleSheet,
   Text,
   View,
-  TouchableHighlight,
-  YellowBox
+  TouchableHighlight
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function App() {
   return (
-    <ScrollView style={styles.container}>
-      <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView style={styles.container}>
         <View>
           <View style={styles.header}>
             <Image
@@ -122,7 +122,7 @@ export default function App() {
             SEE ALL
           </Text>
         </View>
-        <ScrollView horizontal={true}>
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           <View style={styles.cast}>
             <View style={styles.matthew}>
               <Image
@@ -134,13 +134,13 @@ export default function App() {
               </Text>
               <Text style={{ color: "#595959" }}>Cooper</Text>
             </View>
-            <View style={styles.anna}>
+            <View style={styles.anne}>
               <Image
                 style={{ height: 180, width: 120 }}
                 source={require("./assets/Anna-Hathaway.png")}
               ></Image>
               <Text numberOfLines={1} style={{ color: "#E1E1E1" }}>
-                Anna Hathaway
+                Anne Hathaway
               </Text>
               <Text style={{ color: "#595959" }}>Brand</Text>
             </View>
@@ -154,15 +154,15 @@ export default function App() {
               </Text>
               <Text style={{ color: "#595959" }}>Murph</Text>
             </View>
-            <View style={styles.anna}>
+            <View style={styles.wes}>
               <Image
                 style={{ height: 180, width: 120 }}
-                source={require("./assets/Anna-Hathaway.png")}
+                source={require("./assets/Wes-Bentley.png")}
               ></Image>
               <Text numberOfLines={1} style={{ color: "#E1E1E1" }}>
-                Anna Hathaway
+                Wes Bentley
               </Text>
-              <Text style={{ color: "#595959" }}>Brand</Text>
+              <Text style={{ color: "#595959" }}>Doyle</Text>
             </View>
           </View>
         </ScrollView>
@@ -182,8 +182,8 @@ export default function App() {
             Jonathan Nolan (written by) and Christopher Nolan (written by)
           </Text>
         </View>
-      </SafeAreaView>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -204,13 +204,15 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 40,
+    fontWeight: "200",
     color: "white",
     margin: 10
   },
   infos: {
     fontSize: 15,
     color: "#909090",
-    margin: 10
+    margin: 10,
+    flexDirection: "row"
   },
   film: {
     display: "flex",
@@ -227,13 +229,12 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "#0277BD",
-    height: 30,
+    height: 44,
     width: 210,
     display: "flex",
-
+    borderRadius: 6,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 5,
     margin: 20
   },
   buttonText: {
@@ -270,11 +271,13 @@ const styles = StyleSheet.create({
     height: 180,
     width: 120
   },
-
-  anna: {
+  anne: {
     marginLeft: 10
   },
   jessica: {
+    marginLeft: 10
+  },
+  wes: {
     marginLeft: 10
   }
 });
